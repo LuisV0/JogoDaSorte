@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Sorte</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .message {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+        .success {
+            color: green;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <a class="navbar-brand text-white" href="#">Tarefa 1 - Desenvolvimento Web </a>
+    </nav>
+    <p><br><br>  Tente escolher o numero correto: </p>
+    <div class="container mt-5">
+        <div class="btn-group container mt-3 mb-3">
+            <button class="btn btn-primary" onclick="checkButton(1)">Botão 1</button>
+            <button class="btn btn-primary" onclick="checkButton(2)">Botão 2</button>
+            <button class="btn btn-primary" onclick="checkButton(3)">Botão 3</button>
+            <button class="btn btn-primary" onclick="checkButton(4)">Botão 4</button>
+            <button class="btn btn-primary" onclick="checkButton(5)">Botão 5</button>
+        </div>
+        <div id="message" class="message"></div>
+    </div>
+
+    <script>
+        const correctButton = Math.floor(Math.random() * 5) + 1;
+
+        function checkButton(buttonNumber) {
+            const messageDiv = document.getElementById('message');
+            if (buttonNumber === correctButton) {
+                messageDiv.innerHTML = `Você acertou! O botão correto é o ${buttonNumber}`;
+                messageDiv.className = 'message success';
+            } else {
+                messageDiv.innerHTML = `Você errou! O botão ${buttonNumber} não é o correto`;
+                messageDiv.className = 'message error';
+            }
+        }
+    </script>
+</body>
+</html>
